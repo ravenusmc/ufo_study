@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div id="container"></div>
+
+<script src="{{ url_for('static', filename='./bower_components/react/react.min.js') }}"></script>
+<script src="{{ url_for('static', filename='./bower_components/react/JSXTransformer.js') }}"></script>
+
+<script type="text/jsx">
+  var Main = React.createClass({
+    render: function () {
+      return (
+        <div className='main_div'>
+            <SectionOne/>
+            <SectionTwo/>
+        </div>
+      );
+    }
+  });
+
+
+  React.render(
+    <Main/>,
+    document.getElementById('container')
+  );
+
+</script>
+
+{% endblock %}
