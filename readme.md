@@ -1,7 +1,15 @@
 # UFO_Study
 ## Intro
 
+This project is an update of my UFO command line project which I built about 8
+months ago. That project was a good way to learn how to start to use Pandas and
+numpy. However, with the project being command line it really was hard to use and
+kind of 'clunky'. With this project, I will be able to better present the data and
+let the user have a much better experience with it.
 
+The data from this project comes from: https://raw.githubusercontent.com/justmarkham/pandas-videos/master/data/ufo.csv
+I took the data from that site and placed it into a csv file to use with this
+project.
 
 # Getting started
 ### Installing
