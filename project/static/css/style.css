@@ -1,4 +1,13 @@
-.main_container {
+.sectionOne {
     display: flex;
     flex-direction: column;
+    background-image: url(https://source.unsplash.com/mwhklqGVzck);
+    height: 700px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
