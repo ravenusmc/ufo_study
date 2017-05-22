@@ -8,20 +8,29 @@
 <script src="{{ url_for('static', filename='./bower_components/react/JSXTransformer.js') }}"></script>
 
 <script type="text/jsx">
+
   var Main = React.createClass({
     render: function () {
       return (
         <div className='main_div'>
             <SectionOne/>
-            <SectionTwo/>
         </div>
       );
     }
   });
 
+  var SectionOne = React.createClass({
+      render: function() {
+          return (
+              <div className='sectionOne'>
+              </div>
+          )
+      }
+  })
+
 
   React.render(
-    <Main/>,
+    <Main className='main_container'/>,
     document.getElementById('container')
   );
 
