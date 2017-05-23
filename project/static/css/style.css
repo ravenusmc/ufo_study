@@ -1,3 +1,11 @@
+/* Generic CSS */
+
+.center {
+    text-align: center;
+}
+
+/* CSS for login page */
+
 .sectionOne {
     display: flex;
     flex-direction: column;
@@ -10,4 +18,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.login_form {
+    background: rgba(0, 0, 0, 0.7);
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
 }
