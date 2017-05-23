@@ -12,12 +12,12 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
-    # if request.method == 'POST':
-    #     #Recieving the information from the form from the user.
-    #     username = request.form['username']
-    #     password = request.form['password']
-    #     #Creating the object that will represent the user.
-    #     user = User(username)
+    if request.method == 'POST':
+        #Recieving the information from the form from the user.
+        username = request.form['username']
+        password = request.form['password']
+        #Creating the object that will represent the user.
+        user = User(username)
     #     #Now checking to see if the user is in the database.
     #     flag = user.check(username, password)
     #     #Conditional statement to test if the user is a member of the site.
