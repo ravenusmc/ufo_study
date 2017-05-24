@@ -1,14 +1,20 @@
 /* Generic CSS */
-
 .center {
     text-align: center;
+}
+
+.anchor_fix {
+    text-decoration: none;
+    color: white;
+}
+
+.anchor_fix:hover {
+    color: yellow;
 }
 
 /* CSS for login page */
 
 .sectionOne {
-    display: flex;
-    flex-direction: column;
     background-image: url(https://source.unsplash.com/mwhklqGVzck);
     height: 700px;
     background-size: 100% 100%;
@@ -35,19 +41,19 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: -65px;
-    display: flex;
-    flex-direction: column;
-}
-
-.home_header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    margin-top: 50px;
-    align-self: start;
+}
+
+.home_header {
+    background-color: rgba(100, 255, 0, 0.4);
+    color: white;
+}
+
+.footer_home {
+    align-self: flex-end;
+    color: white;
 }
 
 .main_title {
@@ -63,9 +69,4 @@
 .main_sub_sub_title {
     text-transform: uppercase;
     font-size: 20px;
-}
-
-.footer_home {
-    /*margin-top: 1000px;*/
-    align-self: flex-end;
 }

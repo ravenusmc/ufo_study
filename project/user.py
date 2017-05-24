@@ -24,7 +24,7 @@ class User():
 
     def query(self):
         #I first encode the password to utf-8
-        password = password.encode('utf-8')
+        # password = password.encode('utf-8')
         query = ("""SELECT * FROM users WHERE username = %s""")
         name = input('Enter First name: ')
         self.cursor.execute(query, (name,))
@@ -48,9 +48,9 @@ class User():
         #         flag = True
         #         print(flag)
 
-user = User()
+# user = User()
 # user.insert('Abby', 4567)
-user.query()
+# user.query()
 
 
     #This method will see if the user is actual user of the site.
