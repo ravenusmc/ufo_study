@@ -1,5 +1,7 @@
+#Importing files to use in this file.
+import bcrypt
+from bson.son import SON
 import mysql.connector
-
 
 class User():
 
@@ -8,44 +10,47 @@ class User():
                                 password='pass',
                                 host='localhost',
                                 port=3307,
-                                database='people')
+                                database='user')
         self.cursor = self.conn.cursor()
 
+    #This method will insert a new user into the database.
     def insert(self, username, password):
-        self._SQL = """insert into names
-          (first_name, last_name)
+        self._SQL = """insert into users
+          (username, password)
           values
           (%s, %s)"""
         self.cursor.execute(self._SQL, (username, password))
         self.conn.commit()
 
     def query(self):
-        flag = False
-        query = ("""SELECT * FROM names WHERE first_name = %s""")
+        #I first encode the password to utf-8
+        password = password.encode('utf-8')
+        query = ("""SELECT * FROM users WHERE username = %s""")
         name = input('Enter First name: ')
         self.cursor.execute(query, (name,))
-        # print(len(self.cursor.execute(query, (name,))))
-        print(self.cursor.rowcount)
-        if not self.cursor.rowcount:
-            print("No results found")
-            print(flag)
+        row = self.cursor.fetchone()
+        if str(row) == 'None':
+            print('NONE!')
+            flag = False
         else:
-            for row in self.cursor:
-                print(row[0])
-                flag = True
-                print(flag)
-        # for row in self.cursor.fetchall():
-        #     print(row)
-        #     name = row
-        #     print(name)
-        #     input()
-        #     if name == ' ':
-        #         print('Nothing found!')
-        #     else:
-        #         print(name)
+            print(row[0] + ' ' + row[1])
+            flag = True
+            print(flag)
+        # print("Row:",row)
+        # print(len(self.cursor.execute(query, (name,)))) #Error Message
+        # print(self.cursor.rowcount)
+        # if not self.cursor.rowcount:
+        #     print("No results found")
+        #     print(flag)
+        # else:
+        #     for row in self.cursor:
+        #         print(row[0])
+        #         flag = True
+        #         print(flag)
 
-# user = User()
-# user.query()
+user = User()
+# user.insert('Abby', 4567)
+user.query()
 
 
     #This method will see if the user is actual user of the site.
