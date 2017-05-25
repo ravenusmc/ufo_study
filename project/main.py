@@ -38,8 +38,20 @@ def login():
 def home():
     return render_template('home.html', title='Home Page')
 
-@app.route('/signin')
+@app.route('/signin', methods=['GET', 'POST'])
 def signup():
+    if request.method == 'POST':
+        #Recieving the information from the form from the user.
+        username = request.form['username']
+        password = request.form['password']
+        #Creating the object that will represent the user.
+        user = User()
+        #Encrypting the password
+        password, hashed = user.encrypt_pass(password)
+        #Adding the user to the database
+        user.insert(username, hashed)
+        #Letting them into the index Page
+        return redirect(url_for('home'))
     return render_template('sign_in.html', title='sign_in')
 
 

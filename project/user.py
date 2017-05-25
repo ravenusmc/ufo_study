@@ -13,13 +13,19 @@ class User():
                                 database='user')
         self.cursor = self.conn.cursor()
 
+    #This method will encrypt the password
+    def encrypt_pass(self, password):
+        password = password.encode('utf-8')
+        hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+        return password, hashed
+
     #This method will insert a new user into the database.
-    def insert(self, username, password):
+    def insert(self, username, hashed):
         self._SQL = """insert into users
           (username, password)
           values
           (%s, %s)"""
-        self.cursor.execute(self._SQL, (username, password))
+        self.cursor.execute(self._SQL, (username, hashed))
         self.conn.commit()
 
     def query(self):
