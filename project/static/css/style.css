@@ -34,6 +34,27 @@
     color: white;
 }
 
+/* CSS for Sign in page */
+.sign_in_background {
+    background-image: url(https://source.unsplash.com/BeIvjuz6k2k);
+    height: 670px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign_up_form {
+    background: rgba(0, 0, 0, 0.4);
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+}
+
 /* CSS for Home Page */
 .main_image {
     background-image: url(https://source.unsplash.com/UEgo43quyCw);
