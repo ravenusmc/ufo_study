@@ -140,6 +140,26 @@ nav ul a:hover {
     background-position: center;
 }
 
+.section_one {
+    /*margin-left: 5%;
+    margin-right: 5%;*/
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+}
+
+.data_area {
+    flex: 4;
+}
+
+.pic_area {
+    background-image: url(https://source.unsplash.com/QYs58HmCz-s);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 4;
+}
+
 
 /* CSS for Media queries */
 @media only all and (max-width: 768px){

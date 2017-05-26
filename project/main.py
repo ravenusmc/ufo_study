@@ -61,6 +61,8 @@ def home():
 #This function will bring the user to the data page
 @app.route('/data')
 def data():
+    if 'username' not in session:
+        return redirect(url_for('login'))
     return render_template('data.html', title='Data Page')
 
 #This function is what will log out the user.
