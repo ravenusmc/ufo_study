@@ -102,6 +102,39 @@
     text-transform: uppercase;
 }
 
+/* CSS for data page */
+
+nav {
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+nav ul a:hover {
+    color: lightblue;
+}
+
+.data_background_image {
+    margin-top: -10px;
+    background-image: url(https://source.unsplash.com/rTZW4f02zY8);
+    height: 600px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 
 /* CSS for Media queries */
 @media only all and (max-width: 768px){

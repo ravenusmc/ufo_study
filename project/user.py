@@ -28,31 +28,22 @@ class User():
         self.cursor.execute(self._SQL, (username, hashed))
         self.conn.commit()
 
-    def query(self):
+    def check(self,username, password):
         #I first encode the password to utf-8
-        # password = password.encode('utf-8')
+        password = password.encode('utf-8')
         query = ("""SELECT * FROM users WHERE username = %s""")
-        name = input('Enter First name: ')
-        self.cursor.execute(query, (name,))
+        self.cursor.execute(query, (username,))
         row = self.cursor.fetchone()
         if str(row) == 'None':
-            print('NONE!')
             flag = False
+        #If the user is found, then another check is done to see if the hidden
+        #password matches the original one.
         else:
-            print(row[0] + ' ' + row[1])
-            flag = True
-            print(flag)
-        # print("Row:",row)
-        # print(len(self.cursor.execute(query, (name,)))) #Error Message
-        # print(self.cursor.rowcount)
-        # if not self.cursor.rowcount:
-        #     print("No results found")
-        #     print(flag)
-        # else:
-        #     for row in self.cursor:
-        #         print(row[0])
-        #         flag = True
-        #         print(flag)
+            #Setting the hashed variable to be used in the conditional statement.
+            hashed = row[1].encode('utf-8') #This will return the hashed password from the table.
+            if bcrypt.hashpw(password, hashed) == hashed:
+                flag = True
+        return flag
 
 # user = User()
 # user.insert('Abby', 4567)
