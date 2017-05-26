@@ -126,6 +126,11 @@ nav ul a:hover {
     color: lightblue;
 }
 
+.data_page_title {
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
 .data_background_image {
     margin-top: -10px;
     background-image: url(https://source.unsplash.com/rTZW4f02zY8);
