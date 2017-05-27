@@ -6,9 +6,11 @@ import pandas as pd
 
 class Data():
 
-    def test(self):
-        self.__data = pd.read_csv('project/ufo.csv')
+    def __init__(self):
+        self.__data = pd.read_csv('ufo.csv')
+
+    def state(self):
         print(self.__data.head())
 
-# data = Data()
-# data.test()
+data = Data()
+data.state()

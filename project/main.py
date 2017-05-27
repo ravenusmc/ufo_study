@@ -72,6 +72,21 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
+#AJAX Functions here.
+
+#This function looks at UFOs by state
+@app.route('/_by_state')
+def by_state():
+    #Creating an object that will be used to analyze data by the year
+    data = Data()
+    #pulling the data from what the user entered
+    state = request.args.get('state', 0, type=str)
+    #Capitalizing the state name to ensure that it matches what is in the csv file
+    state = state.upper()
+    # state_count = data.by_state(state)
+    #Returning the state count back to the user.
+    return jsonify(result = state)
+
 
 
 # set the secret key. keep this really secret:
