@@ -9,7 +9,7 @@ function validateForm(){
 
 //Code to calculate UFOs in a given state
 $(function() {
-    
+
     var submit_form = function(e) {
         //The /_by_state is the method that you will use.
       $.getJSON($SCRIPT_ROOT + '/_by_state', {
@@ -25,4 +25,27 @@ $(function() {
 
     //This is what will submit the form when the user clicks the link.
     $('a#state').bind('click', submit_form);
+});
+
+
+//Code to calculate UFO shapes
+$(function() {
+
+    var submit_form = function(e) {
+        //The /_by_state is the method that you will use.
+      $.getJSON($SCRIPT_ROOT + '/_by_shape', {
+        //State_name is the name variable in the HTML code.
+        // shape: $('input[name="shape"]').val()
+        shape: $('select').val();
+        // state: $s( "#shape option:selected" ).text();
+      }, function(data) {
+        console.log(data.result)
+        //This is where the data will be displayed.
+        $('#shape_results').text(data.result);
+      });
+      return false;
+    };
+
+    //This is what will submit the form when the user clicks the link.
+    $('a#shape').bind('click', submit_form);
 });

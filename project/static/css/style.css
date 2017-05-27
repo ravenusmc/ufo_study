@@ -197,6 +197,12 @@ nav ul a:hover {
     flex: 4;
 }
 
+.shape_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 /* CSS for Media queries */
 @media only all and (max-width: 768px){

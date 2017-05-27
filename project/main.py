@@ -83,10 +83,24 @@ def by_state():
     state = request.args.get('state', 0, type=str)
     #Capitalizing the state name to ensure that it matches what is in the csv file
     state = state.upper()
-    # state_count = data.by_state(state)
+    #Using the state_count method from the ufo.py file to find the number of
+    #UFO's by state.
+    count = data.state_count(state)
     #Returning the state count back to the user.
-    return jsonify(result = state)
+    return jsonify(result = count)
 
+@app.route('/_by_shape')
+def by_shape():
+    #Creating an object that will be used to analyze data by the year
+    data = Data()
+    #Receiving the data from what the user entered
+    # shape = request.args.get('shape', 0, type=str)
+    shape = request.form.get('shape')
+    print(shape)
+    count = 7
+    return jsonify(result = count)
+
+#END OF AJAX FUNCTIONS
 
 
 # set the secret key. keep this really secret:

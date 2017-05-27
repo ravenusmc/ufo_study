@@ -19,6 +19,7 @@
 
     <section class='data_page_title'>
         <h1 class='center'>Examine the Data</h1>
+        <h3 class='center'>1930-2001</h3>
     </section>
 
     <section class='section_one'>
@@ -28,14 +29,27 @@
                 <h4 class='center'>Please use state abbreviation<h4>
                 <p>Enter State:<input type="text" size="10" name='state_name'></p>
                 <p>Result: <span id="state_results">?</span></p>
-                <p><a href=# id="state">Calculate Murders in given state</a></p>
+                <p><a href=# id="state">Calculate UFOs in given state</a></p>
             </div>
         </div>
         <div class='pic_area_one'>
         </div>
         <div class='data_area'>
-            <div class='data_results'>
+            <div class='data_results shape_area'>
                 <h1>Search for UFO by Shape</h1>
+                <h4 class='center'>Please select a shape to look at</h4>
+                <select size='1' name='shape' id='shape'>
+                    <option value='Triangle'>Triangle</option>
+                    <option name='Oval' value='Oval'>Oval</option>
+                    <option value='Disk'>Disk</option>
+                    <option value='Circle'>Circle</option>
+                    <option value='Cigar'>Cigar</option>
+                    <option value='Cylinder'>Cylinder</option>
+                    <option value='Rectangle'>Rectangle</option>
+                    <option value='Formation'>Formation</option>
+                </select>
+                <p>Result: <span id="shape_results">?</span></p>
+                <p><a href=# id="shape">Calculate number of UFO's by shape</a></p>
             </div>
         </div>
     </section>
