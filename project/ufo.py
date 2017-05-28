@@ -19,6 +19,7 @@ class Data():
         #Returning the count
         return count
 
+    #This method will return the number of UFO's by shape
     def shape_counter(self, shape):
         #Getting the Shape column
         shapes = self.__data[[2]]
@@ -26,6 +27,17 @@ class Data():
         count = len(shapes[shapes.Shape_Reported == shape])
         #Returning the count
         return count
+
+    #This method will return the number of UFO's by color
+    def color_counter(self, color):
+        #Focusing in on the colors column
+        colors = self.__data[[1]]
+        #Here I get the number of UFO's by color
+        count = len(colors[colors.Colors_Reported == color])
+        #Returning the count of UFO's by specific color
+        return count
+
+
 
 
 # data = Data()

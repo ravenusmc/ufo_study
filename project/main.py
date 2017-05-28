@@ -89,9 +89,10 @@ def by_state():
     #Returning the state count back to the user.
     return jsonify(result = count)
 
+#This function looks at UFO's by shape
 @app.route('/_by_shape')
 def by_shape():
-    #Creating an object that will be used to analyze data by the year
+    #Creating an object that will be used to analyze data by the shape
     data = Data()
     #Receiving the data from what the user entered
     shape = request.args.get('shape', 0, type=str)
@@ -99,6 +100,18 @@ def by_shape():
     #the csv
     shape = shape.upper()
     count = data.shape_counter(shape)
+    return jsonify(result = count)
+
+#This function looks at UFO's by color
+@app.route('/_by_color')
+def by_color():
+    #Creating an object that will be used to analyze data by the color
+    data = Data()
+    #Receiving the data from what the user entered
+    color = request.args.get('color', 0, type=str)
+    #I have to convert the color string to all uppercase for the csv file.
+    color = color.upper()
+    count = data.color_counter(color)
     return jsonify(result = count)
 
 #END OF AJAX FUNCTIONS
