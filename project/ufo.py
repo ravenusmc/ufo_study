@@ -37,6 +37,11 @@ class Data():
         #Returning the count of UFO's by specific color
         return count
 
+    #This method will return the number of UFO's by state and shape.
+    def state_shape_counter(self, state, shape):
+        count = len(self.__data[(self.__data.State == state) & (self.__data.Shape_Reported == shape)])
+        return count
+
 
 
 

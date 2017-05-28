@@ -114,6 +114,20 @@ def by_color():
     count = data.color_counter(color)
     return jsonify(result = count)
 
+#This function looks at UFO's by state and shape
+@app.route('/_by_state_shape')
+def by_state_shape():
+    #Creating an object that will be used to analyze data by the color
+    data = Data()
+    state = request.args.get('state_two', 0, type=str)
+    shape = request.args.get('shape_two', 0, type=str)
+    #Capitalizing the state and shape name to ensure that it matches what is in the csv file
+    state = state.upper()
+    shape = shape.upper()
+    count = data.state_shape_counter(state, shape)
+    return jsonify(result = count)
+
+
 #END OF AJAX FUNCTIONS
 
 

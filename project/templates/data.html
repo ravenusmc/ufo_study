@@ -71,8 +71,25 @@
 
     <section class='section_one'>
         <div class='data_area'>
-            <div class='data_results'>
+            <div class='data_result_state_shape'>
                 <h1>Search for UFO by State and Shape</h1>
+                <h4 class='center'>Please use state abbreviation<h4>
+                <p>Enter State:<input type="text" size="10" name='state_two'></p>
+                <p>Please select a shape:</p>
+                <input type='text' name='shape_two' list='shape_two'>
+                    <datalist id='shape_two'>
+                        <option value='Triangle' label='Triangle'>
+                        <option value='Oval' label='Oval'>
+                        <option value='Circle' label='Circle'>
+                        <option value='Dish' label='Dish'>
+                        <option value='Cigar' label='Cigar'>
+                        <option value='Cylinder' label='Cylinder'>
+                        <option value='Rectangle' label='Rectangle'>
+                        <option value='Formation' label='Formation'>
+                        <option value='Other' label='Other'>
+                    </datalist>
+                <p>Result: <span id="state_shape_results">?</span></p>
+                <p><a href=# id="state_shape_btn">Calculate UFOs in given state</a></p>
             </div>
         </div>
         <div class='pic_area_four'>

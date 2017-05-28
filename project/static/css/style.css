@@ -203,6 +203,12 @@ nav ul a:hover {
     justify-content: center;
 }
 
+.data_result_state_shape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 /* CSS for Media queries */
 @media only all and (max-width: 768px){
