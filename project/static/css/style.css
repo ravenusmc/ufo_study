@@ -150,8 +150,6 @@ nav ul a:hover {
 }
 
 .section_one {
-    /*margin-left: 5%;
-    margin-right: 5%;*/
     height: 500px;
     display: flex;
     flex-direction: row;
@@ -221,6 +219,63 @@ nav ul a:hover {
     .main_sub_title {
         text-transform: uppercase;
         font-size: 30px;
+    }
+
+    /* CSS for Data Page */
+    nav ul li {
+        list-style-type: none;
+        display: block;
+    }
+
+    .data_background_image {
+        margin-top: 180px;
+        background-image: url(https://source.unsplash.com/rTZW4f02zY8);
+        height: 450px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .data_page_title {
+        text-transform: uppercase;
+        font-size: 30px;
+        border-bottom: 2px solid black;
+    }
+
+    .section_one {
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .data_area {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid black;
+    }
+
+    .pic_area_one {
+        display: none;
+    }
+
+    .pic_area_two {
+        display: none;
+    }
+
+    .pic_area_three {
+        display: none;
+    }
+
+    .pic_area_four {
+        display: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 130px;
+      border-top: 3px solid white;
     }
 
 }
