@@ -94,10 +94,11 @@ def by_shape():
     #Creating an object that will be used to analyze data by the year
     data = Data()
     #Receiving the data from what the user entered
-    # shape = request.args.get('shape', 0, type=str)
-    shape = request.form.get('shape')
-    print(shape)
-    count = 7
+    shape = request.args.get('shape', 0, type=str)
+    #I have to uppercase all letters in shape since that is how the data is in
+    #the csv
+    shape = shape.upper()
+    count = data.shape_counter(shape)
     return jsonify(result = count)
 
 #END OF AJAX FUNCTIONS

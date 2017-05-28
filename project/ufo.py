@@ -14,8 +14,19 @@ class Data():
     def state_count(self, state):
         #Getting the state column
         states = self.__data[[3]]
+        #Here I get the count of the number of ufo's by state
         count = len(states[states.State == state])
+        #Returning the count
         return count
+
+    def shape_counter(self, shape):
+        #Getting the Shape column
+        shapes = self.__data[[2]]
+        #Here I get the count of the number of ufo's by shape
+        count = len(shapes[shapes.Shape_Reported == shape])
+        #Returning the count
+        return count
+
 
 # data = Data()
 # data.state()

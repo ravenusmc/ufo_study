@@ -35,11 +35,11 @@ $(function() {
         //The /_by_state is the method that you will use.
       $.getJSON($SCRIPT_ROOT + '/_by_shape', {
         //State_name is the name variable in the HTML code.
-        // shape: $('input[name="shape"]').val()
-        shape: $('select').val();
+        shape: $('input[name="shape"]').val()
+
+        //shape: $('select').val();
         // state: $s( "#shape option:selected" ).text();
       }, function(data) {
-        console.log(data.result)
         //This is where the data will be displayed.
         $('#shape_results').text(data.result);
       });
@@ -47,5 +47,5 @@ $(function() {
     };
 
     //This is what will submit the form when the user clicks the link.
-    $('a#shape').bind('click', submit_form);
+    $('a#shape_button').bind('click', submit_form);
 });
