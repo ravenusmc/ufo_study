@@ -1,8 +1,10 @@
 #This file will hold the class that will manipulate the data from ufo.csv file.
 
 #Importing files that will be used for the project
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
 
 #This class is what will handle all of the coding with the CSV file.
 class Data():
@@ -56,19 +58,28 @@ class Data():
         #Returning the value.
         return count
 
+    #This method is not actually used in this project but I have included it here
+    #because it is how I got the graph for the UFO count by year.
+    def ufo_year_graph(self):
+        value = "1930"
+        count = int(value)
+        years, date = [], []
+        while count < 2001:
+            test = self.__data[self.__data.Time.str.contains(value)]
+            date.append(value)
+            number = test.City.count()
+            years.append(int(number))
+            newValue = int(value)
+            newValue += 1
+            value = str(newValue)
+            count += 1
+        plt.plot(date, years, linewidth=2)
+        plt.title("UFO Sightings By Year", fontsize=24)
+        plt.xlabel("Year", fontsize=14)
+        plt.ylabel("Count", fontsize=12)
+        plt.show()
+
+
 
 # data = Data()
-# data.year_count(1930)
-
-years, date = [], []
-while count < 2001:
-    test = self.__data[self.__data.Time.str.contains(value)]
-    print(test)
-    count += 1
-  date.append(value)
-  number = test.City.count()
-  year.append(int(number))
-  newValue = int(value)
-  newValue += 1
-  value = str(newValue)
-count += 1
+# data.ufo_year_graph()

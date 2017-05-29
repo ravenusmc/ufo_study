@@ -208,6 +208,10 @@ nav ul a:hover {
 }
 
 /* CSS for Graph Page */
+.graph_page_header {
+    margin-top: -100px;
+}
+
 .intro_section {
     margin-top: 150px;
     display: flex;
