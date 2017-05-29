@@ -1,6 +1,8 @@
 #This file will hold the class that will manipulate the data from ufo.csv file.
 
 #Importing files that will be used for the project
+import csv
+import json
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -79,7 +81,93 @@ class Data():
         plt.ylabel("Count", fontsize=12)
         plt.show()
 
+    def ufo_map(self):
+        state_dict = {}
+        self.__data = self.__data.groupby('State').size()
+        count = 0
+        while count < len(self.__data):
+            state = self.__data.reset_index().values[count][0]
+            value = self.__data.reset_index().values[count][1]
+            state_dict[state] = value
+            count += 1
+        # with open('test.csv', 'w') as f:  # Just use 'w' mode in 3.x
+        #     fieldnames = ['State', 'Value']
+        #     w = csv.DictWriter(f, state_dict.keys())
+        #     # w = csv.DictWriter(f, fieldnames=fieldnames)
+        #     w.writeheader()
+        #     w.writerow(state_dict)
+        print(state_dict)
 
 
-# data = Data()
-# data.ufo_year_graph()
+
+data = Data()
+data.ufo_map()
+
+#JSON
+#d = state_dict
+# jsonarray = json.dumps(d)
+# print(jsonarray)
+# {
+# "TX": 1027,
+# "NV": 284,
+# "AL": 193,
+# "TN": 286,
+# "AZ": 738,
+# "Ca": 1,
+# "GA": 325,
+# "NJ": 370,
+# "IL": 613,
+# "CO": 367,
+# "OK": 193,
+# "MS": 139,
+# "HI": 85,
+# "WA": 1322,
+# "WV": 132,
+# "NC": 356,
+# "MO": 448,
+# "OH": 667,
+# "NM": 241,
+# "DE": 43,
+# "FL": 837,
+# "OR": 534,
+# "IN": 326,
+# "PA": 598,
+# "MT": 144,
+# "ND": 51,
+# "ID": 130,
+# "UT": 193,
+# "NY": 914,
+# "RI": 67,
+# "MA": 322,
+# "WY": 69,
+# "MN": 254,
+# "IA": 162,
+# "SD": 57,
+# "MI": 591,
+# "LA": 174,
+# "AK": 116,
+# "SC": 166,
+# "Fl": 4,
+# "NE": 101,
+# "KS": 176,
+# "WI": 357,
+# "NH": 125,
+# "CT": 225,
+# "KY": 244,
+# "AR": 206,
+# "ME": 181,
+# "VA": 299,
+# "MD": 215,
+# "CA": 2529,
+# "VT": 44
+# }
+
+#Scrap code
+#print(self.__data.reset_index().values[0][0])
+# state_dict = {}
+# states = self.__data[[3]]
+# states = states.head()
+# count = 0
+# while count < len(states):
+#     print(states.iloc[count][0])
+#     count += 1
