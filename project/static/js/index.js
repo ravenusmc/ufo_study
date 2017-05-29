@@ -86,3 +86,20 @@ $(function() {
     //This is what will submit the form when the user clicks the link.
     $('a#state_shape_btn').bind('click', submit_form);
 });
+
+//Code to calculate UFO's by year
+$(function() {
+
+    var submit_form = function(e) {
+        //The /_by_state is the method that you will use.
+      $.getJSON($SCRIPT_ROOT + '/_by_year', {
+        year: $('input[name="year"]').val()
+      }, function(data) {
+        //This is where the data will be displayed.
+        $('#year_results').text(data.result);
+      });
+      return false;
+    };
+    //This is what will submit the form when the user clicks the link.
+    $('a#year').bind('click', submit_form);
+});

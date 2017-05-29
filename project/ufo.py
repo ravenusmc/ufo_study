@@ -39,11 +39,36 @@ class Data():
 
     #This method will return the number of UFO's by state and shape.
     def state_shape_counter(self, state, shape):
+        #Notice how I save some lines and not seperating out the data first like I
+        #did in the above three methods!
         count = len(self.__data[(self.__data.State == state) & (self.__data.Shape_Reported == shape)])
         return count
 
-
+    #This method will return the number of UFO's by year.
+    def year_count(self, year):
+        #I have to convert the year to a string
+        year_to_string = str(year)
+        #Since my data has a full date instead of just the year, I need to ID
+        #the values that contain my year.
+        ufo_in_year = self.__data[self.__data.Time.str.contains(year_to_string)]
+        #Getting the count of the UFO's in the year that the user specified.
+        count = len(ufo_in_year)
+        #Returning the value. 
+        return count
 
 
 # data = Data()
-# data.state()
+# data.year_count(1930)
+
+# years, date = [], []
+# while count < 2001:
+#     test = self.__data[self.__data.Time.str.contains(value)]
+#     print(test)
+#     count += 1
+#   date.append(value)
+#   number = test.City.count()
+#   year.append(int(number))
+#   newValue = int(value)
+#   newValue += 1
+#   value = str(newValue)
+# count += 1

@@ -127,6 +127,16 @@ def by_state_shape():
     count = data.state_shape_counter(state, shape)
     return jsonify(result = count)
 
+#This function looks at the count of UFO's by year
+@app.route('/_by_year')
+def by_year():
+    #Creating an object that will be used to analyze data by the year
+    data = Data()
+    year = request.args.get('year', 0, type=int)
+    #Calling the year_count method from the Data class to get the number of UFO's by year.
+    count = data.year_count(year)
+    return jsonify(result = count)
+
 
 #END OF AJAX FUNCTIONS
 
