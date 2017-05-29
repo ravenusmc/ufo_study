@@ -53,22 +53,22 @@ class Data():
         ufo_in_year = self.__data[self.__data.Time.str.contains(year_to_string)]
         #Getting the count of the UFO's in the year that the user specified.
         count = len(ufo_in_year)
-        #Returning the value. 
+        #Returning the value.
         return count
 
 
 # data = Data()
 # data.year_count(1930)
 
-# years, date = [], []
-# while count < 2001:
-#     test = self.__data[self.__data.Time.str.contains(value)]
-#     print(test)
-#     count += 1
-#   date.append(value)
-#   number = test.City.count()
-#   year.append(int(number))
-#   newValue = int(value)
-#   newValue += 1
-#   value = str(newValue)
-# count += 1
+years, date = [], []
+while count < 2001:
+    test = self.__data[self.__data.Time.str.contains(value)]
+    print(test)
+    count += 1
+  date.append(value)
+  number = test.City.count()
+  year.append(int(number))
+  newValue = int(value)
+  newValue += 1
+  value = str(newValue)
+count += 1

@@ -207,6 +207,43 @@ nav ul a:hover {
     align-items: center;
 }
 
+/* CSS for Graph Page */
+.intro_section {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.intro_section_desc {
+    margin-right: 12px;
+    flex: 4;
+    text-align: justify;
+}
+
+.intro_pic_section {
+    flex: 6;
+    background-image: url(https://source.unsplash.com/_bT-oNYP5Wk);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.ngram_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.year_graph_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* CSS for Media queries */
 @media only all and (max-width: 768px){
@@ -276,6 +313,15 @@ nav ul a:hover {
       text-align: center;
       margin-top: 130px;
       border-top: 3px solid white;
+    }
+
+    /* CSS for graph page */
+    .intro_section {
+        margin-top: 200px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
 }

@@ -5,12 +5,50 @@
 <nav>
     <ul class='center'>
         <li><a href='/home'>Home</a><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <li><a href='/data'>Data Page</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li><a href='/graph'>Graph Page</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <li><a href='/sign_out'>Sign Out</a></li>
     </ul>
 </nav>
 
+<header class='graph_page_header'>
+    <h1>Graph Page</h1>
+</header>
+
 <main>
+
+    <section class='intro_section'>
+        <div class='intro_section_desc'>
+            <h1 class='center'>Basic Information</h1>
+            <p>Here the user will visually see graphs where they will learn more
+                about the UFO's. It is on this page where the user may start to
+                losee faith that UFO's are NOT real.
+            </p>
+            <p>The first graph comes from Google's NGRAM viewer. It will show that
+                the word 'UFO' has become very popular since the late 80's to early
+                90's.
+            </p>
+            <p>The second graph comes from the CSV file that this app
+                used to pull its data from. It will show the UFO sightings, by year,
+                from 1930 to 2001.
+            </p>
+        </div>
+        <div class='intro_pic_section'>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class='ngram_section'>
+        <h1>GOOGLE NGRAM VIEWER OF THE WORD UFO</h1>
+        <iframe name="ngram_chart" src="https://books.google.com/ngrams/interactive_chart?content=UFO&year_start=1930&year_end=2017&corpus=15&smoothing=3&share=&direct_url=t1%3B%2CUFO%3B%2Cc0" width=900 height=500 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></iframe>
+    </section>
+
+    <hr>
+
+    <section class='year_graph_section'>
+        <h1>CSV DATA SHOWING UFO BY YEAR</h1>
+    </section>
 
 </main>
 
