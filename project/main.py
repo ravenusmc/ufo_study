@@ -65,6 +65,13 @@ def data():
         return redirect(url_for('login'))
     return render_template('data.html', title='Data Page')
 
+#This function will bring the user to the graph page
+@app.route('/graph')
+def graph():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    return render_template('graph.html', title='Graph Page')
+
 #This function is what will log out the user.
 @app.route('/sign_out')
 def logout():
@@ -137,9 +144,7 @@ def by_year():
     count = data.year_count(year)
     return jsonify(result = count)
 
-
 #END OF AJAX FUNCTIONS
-
 
 # set the secret key. keep this really secret:
 app.secret_key = 'n3A\xef(\xb0Cf^\xda\xf7\x97\xb1x\x8e\x94\xd5r\xe0\x11\x88\x1b\xb9'
