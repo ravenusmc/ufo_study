@@ -81,6 +81,7 @@ class Data():
         plt.ylabel("Count", fontsize=12)
         plt.show()
 
+    #This method creates the graph of UFO sitings by year.
     def ufo_map(self):
         state_dict = {}
         self.__data = self.__data.groupby('State').size()
@@ -98,10 +99,14 @@ class Data():
         #     w.writerow(state_dict)
         print(state_dict)
 
-
+    #This method will allow the csv file to be used by D3.js.
+    def convert_json_for_d3(self):
+        self.__data = pd.read_json('us-states.json')
+        df = self.__data
+        return df
 
 # data = Data()
-# data.ufo_map()
+# data.convert_json_for_d3()
 
 #JSON
 #d = state_dict

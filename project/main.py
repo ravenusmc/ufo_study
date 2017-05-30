@@ -109,6 +109,14 @@ def by_shape():
     count = data.shape_counter(shape)
     return jsonify(result = count)
 
+@app.route("/json")
+def json():
+    data = Data()
+    data_file = data.convert_json_for_d3()
+    # return data_file
+    return data_file.to_json()
+    # return jsonify(get_data())
+
 #This function looks at UFO's by color
 @app.route('/_by_color')
 def by_color():

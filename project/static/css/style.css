@@ -248,6 +248,13 @@ nav ul a:hover {
     align-items: center;
 }
 
+#us-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* CSS for Media queries */
 @media only all and (max-width: 768px){

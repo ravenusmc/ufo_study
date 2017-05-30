@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
 
+<!-- Navbar Section -->
 <nav>
     <ul class='center'>
         <li><a href='/home'>Home</a><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -11,12 +14,15 @@
     </ul>
 </nav>
 
+<!-- Header Section -->
 <header class='graph_page_header'>
     <h1>Graph Page</h1>
 </header>
 
+<!-- main section -->
 <main>
 
+    <!-- Section for page intro -->
     <section class='intro_section'>
         <div class='intro_section_desc'>
             <h1 class='center'>Basic Information</h1>
@@ -39,6 +45,7 @@
 
     <hr>
 
+    <!-- Google NGRAM Viewer section -->
     <section class='ngram_section'>
         <h1>GOOGLE NGRAM VIEWER OF THE WORD UFO</h1>
         <iframe name="ngram_chart" src="https://books.google.com/ngrams/interactive_chart?content=UFO&year_start=1930&year_end=2017&corpus=15&smoothing=3&share=&direct_url=t1%3B%2CUFO%3B%2Cc0" width=900 height=500 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></iframe>
@@ -46,12 +53,18 @@
 
     <hr>
 
+    <!-- CSV data section -->
     <section class='year_graph_section'>
         <img src='static/img/graph_year.png' alt='graph of UFOs by year 1930-2000'>
     </section>
 
-</main>
+    <hr>
 
+    <section id="us-map">
+        <h1>UFO Sitings in the U.S.</h1>
+    </section>
+
+</main>
 
 <!-- Footer Section -->
 <footer>
@@ -63,5 +76,36 @@
         <a href="https://www.linkedin.com/in/mcuddy1/"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
     </p>
 </footer>
+
+<script type="text/javascript">
+
+    //Define default path generator
+    let path = d3.geo.path();
+
+    //Creating the SVG element and attaching it to the page.
+    // let svg = d3.select("#us-map")
+    //     .append("svg")
+    //     .attr("width", 900)
+    //     .attr("height", 700)
+
+    let dataset = [5,10,15,20,25];
+
+    d3.select("#us-map").selectAll("div")
+        .data(dataset)
+        .enter()
+        .append("div")
+        .attr("class", "bar")
+
+    //This function will get the data for the map of the U.S
+    // d3.json("/json", function(json){
+    //     //Bind data and create one path per GeoJSON feature
+	// 	svg.selectAll("path")
+	// 	   .data(json.features)
+	// 	   .enter()
+	// 	   .append("path")
+	// 	   .attr("d", path);
+    });
+
+</script>
 
 {% endblock %}
