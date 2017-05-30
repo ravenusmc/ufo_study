@@ -100,8 +100,8 @@ class Data():
 
 
 
-data = Data()
-data.ufo_map()
+# data = Data()
+# data.ufo_map()
 
 #JSON
 #d = state_dict
