@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<style type="text/css">
+    div.bar {
+        display: inline-block;
+        width: 200px;
+        height: 75px;
+        background-color: teal;
+    }
+</style>
 <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -83,28 +91,34 @@
     let path = d3.geo.path();
 
     //Creating the SVG element and attaching it to the page.
-    // let svg = d3.select("#us-map")
-    //     .append("svg")
-    //     .attr("width", 900)
-    //     .attr("height", 700)
+    let svg = d3.select("#us-map")
+        .append("svg")
+        .attr("width", 900)
+        .attr("height", 700);
 
-    let dataset = [5,10,15,20,25];
+    let displayFunc = function(json){
+        console.log(json.features)
+        //Bind data and create one path per GeoJSON feature
+		svg.selectAll("path")
+		   .data(json.features)
+		   .enter()
+		   .append("path")
+		   .attr("d", path);
+    }
 
-    d3.select("#us-map").selectAll("div")
-        .data(dataset)
-        .enter()
-        .append("div")
-        .attr("class", "bar")
+    d3.json("/json", displayFunc);
 
+    /////////   BOOK WAY ////////////////
     //This function will get the data for the map of the U.S
     // d3.json("/json", function(json){
+    //     console.log(json.features)
     //     //Bind data and create one path per GeoJSON feature
 	// 	svg.selectAll("path")
 	// 	   .data(json.features)
 	// 	   .enter()
 	// 	   .append("path")
 	// 	   .attr("d", path);
-    });
+    // });
 
 </script>
 

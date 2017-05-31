@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from nvd3 import lineChart
+
 
 #This class is what will handle all of the coding with the CSV file.
 class Data():
@@ -105,8 +107,31 @@ class Data():
         df = self.__data
         return df
 
-# data = Data()
-# data.convert_json_for_d3()
+    def test(self):
+        value = "1930"
+        count = int(value)
+        years, date = [], []
+        while count < 2001:
+            test = self.__data[self.__data.Time.str.contains(value)]
+            date.append(value)
+            number = test.City.count()
+            years.append(int(number))
+            newValue = int(value)
+            newValue += 1
+            value = str(newValue)
+            count += 1
+        type = 'lineChart'
+        chart = lineChart(name=type, color_category='category20c', height=450, width=450)
+        xdata = date
+        ydata = years
+        extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
+        chart.add_serie(y=ydata, x=xdata, extra=extra_serie)
+        chart.buildcontent()
+        print(chart.htmlcontent)
+
+
+data = Data()
+data.test()
 
 #JSON
 #d = state_dict
