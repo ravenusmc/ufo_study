@@ -10,7 +10,14 @@
     }
 </style>
 <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+
+<!-- <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.js"></script> -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
 
 <!-- Navbar Section -->
 <nav>
@@ -62,9 +69,11 @@
     <hr>
 
     <!-- CSV data section -->
-    <section class='year_graph_section'>
-        <img src='static/img/graph_year.png' alt='graph of UFOs by year 1930-2000'>
+    <section <section class='year_graph_section'>
     </section>
+    <!-- <section class='year_graph_section'>
+        <img src='static/img/graph_year.png' alt='graph of UFOs by year 1930-2000'>
+    </section> -->
 
     <hr>
 
@@ -85,7 +94,71 @@
     </p>
 </footer>
 
-<script type="text/javascript">
+<!-- <div id="linechart"><svg style="width:800px;height:800px;"></svg></div>
+
+<script>
+
+        data_linechart=[{"color": "black", "yAxis": "1", "key": "Serie 1", "values": [{"x": "1930", "y": 2}, {"x": "1931", "y": 2}, {"x": "1932", "y": 0}, {"x": "1933", "y": 1}, {"x": "1934", "y": 1}, {"x": "1935", "y": 1}, {"x": "1936", "y": 2}, {"x": "1937", "y": 2}, {"x": "1938", "y": 0}, {"x": "1939", "y": 3}, {"x": "1940", "y": 0}, {"x": "1941", "y": 2}, {"x": "1942", "y": 3}, {"x": "1943", "y": 3}, {"x": "1944", "y": 8}, {"x": "1945", "y": 9}, {"x": "1946", "y": 8}, {"x": "1947", "y": 41}, {"x": "1948", "y": 9}, {"x": "1949", "y": 19}, {"x": "1950", "y": 31}, {"x": "1951", "y": 21}, {"x": "1952", "y": 51}, {"x": "1953", "y": 35}, {"x": "1954", "y": 55}, {"x": "1955", "y": 33}, {"x": "1956", "y": 46}, {"x": "1957", "y": 78}, {"x": "1958", "y": 53}, {"x": "1959", "y": 57}, {"x": "1960", "y": 66}, {"x": "1961", "y": 50}, {"x": "1962", "y": 72}, {"x": "1963", "y": 85}, {"x": "1964", "y": 101}, {"x": "1965", "y": 195}, {"x": "1966", "y": 203}, {"x": "1967", "y": 196}, {"x": "1968", "y": 218}, {"x": "1969", "y": 153}, {"x": "1970", "y": 137}, {"x": "1971", "y": 118}, {"x": "1972", "y": 162}, {"x": "1973", "y": 226}, {"x": "1974", "y": 261}, {"x": "1975", "y": 311}, {"x": "1976", "y": 281}, {"x": "1977", "y": 258}, {"x": "1978", "y": 326}, {"x": "1979", "y": 237}, {"x": "1980", "y": 244}, {"x": "1981", "y": 175}, {"x": "1982", "y": 185}, {"x": "1983", "y": 148}, {"x": "1984", "y": 177}, {"x": "1985", "y": 210}, {"x": "1986", "y": 186}, {"x": "1987", "y": 210}, {"x": "1988", "y": 232}, {"x": "1989", "y": 247}, {"x": "1990", "y": 237}, {"x": "1991", "y": 220}, {"x": "1992", "y": 244}, {"x": "1993", "y": 291}, {"x": "1994", "y": 406}, {"x": "1995", "y": 1342}, {"x": "1996", "y": 848}, {"x": "1997", "y": 1236}, {"x": "1998", "y": 1741}, {"x": "1999", "y": 2774}, {"x": "2000", "y": 2631}]}];
+
+    nv.addGraph(function() {
+    var chart = nv.models.lineChart();
+
+
+
+    var datum = data_linechart;
+
+
+
+            chart.yAxis
+            .tickFormat(d3.format(',.02f'));
+        chart.xAxis
+            .tickFormat(d3.format(',r'));
+
+
+
+      chart.showLegend(true);
+
+        d3.select('#linechart svg')
+        .datum(datum)
+        .transition().duration(500)
+        .attr('width', 800)
+        .attr('height', 800)
+        .call(chart);
+
+    });
+
+</script> -->
+
+<script>
+
+var width = 800;
+var height = 800;
+
+var svg = d3.select("#us-map").append("svg")
+  .attr("width",width)
+  .attr("height",height);
+
+var projection = d3.geo.albersUsa().translate([width/2,height/2]);
+
+projection = projection.scale(1000)
+
+var path = d3.geo.path().projection(projection);
+
+d3.json("/json",function(data) {
+    console.log(data)
+	svg.append("path")
+	  .datum(data)
+	  .attr('d',path)
+    //   .attr('d',function(d) { console.log(d); return path(d) })
+	  .attr('fill','steelblue')
+	  .attr('stroke','black');
+
+
+});
+
+</script>
+
+<!-- <script type="text/javascript">
 
     //Define default path generator
     let path = d3.geo.path();
@@ -120,6 +193,6 @@
 	// 	   .attr("d", path);
     // });
 
-</script>
+</script> -->
 
 {% endblock %}

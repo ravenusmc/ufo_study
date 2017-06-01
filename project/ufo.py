@@ -2,10 +2,12 @@
 
 #Importing files that will be used for the project
 import csv
+import geopandas as gpd
 import json
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
 
 from nvd3 import lineChart
 
@@ -103,11 +105,14 @@ class Data():
 
     #This method will allow the csv file to be used by D3.js.
     def convert_json_for_d3(self):
-        self.__data = pd.read_json('us-states.json')
+        # self.__data = pd.read_json('us-states.json')
+        self.__data = gpd.read_file('us-states.json')
         df = self.__data
         return df
 
-    def test(self):
+    #This method will allow me to build an interactive chart with nvd3 as oppossed
+    #to the ufo_map method above.
+    def nvd3_chart(self):
         value = "1930"
         count = int(value)
         years, date = [], []
@@ -120,18 +125,28 @@ class Data():
             newValue += 1
             value = str(newValue)
             count += 1
+        # Open File for test
+        output_file = open('test_lineChart.html', 'w')
+        #The rest of these lines will use NVD3 to create the graph.
         type = 'lineChart'
-        chart = lineChart(name=type, color_category='category20c', height=450, width=450)
+        chart = lineChart(name=type, height=600, width=600, x_is_date=True,)
+        #Creating the variables which will hold the data.
         xdata = date
         ydata = years
-        extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}
-        chart.add_serie(y=ydata, x=xdata, extra=extra_serie)
-        chart.buildcontent()
-        print(chart.htmlcontent)
+        kwargs1 = {'color': 'black'}
+        #This is what will actually plot the data
+        chart.add_serie(y=ydata, name='UFO Count By Year', x=xdata, **kwargs1)
+        #This builds the HTML file for my graph.
+        chart.buildhtml()
+        #Placing the D3 data into an HTML file.
+        output_file.write(chart.htmlcontent)
+        # close Html file
+        output_file.close()
 
 
-data = Data()
-data.test()
+# data = Data()
+# data.convert_json_for_d3
+# data.test()
 
 #JSON
 #d = state_dict
