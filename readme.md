@@ -29,6 +29,7 @@ project.
 4. Numpy-1.11.0
 5. React-15.5.4 (Used on a very small level)
 6. MySQL-5.6.26
+7. D3.JS version 3
 
 ### Operation
 
