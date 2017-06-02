@@ -143,10 +143,16 @@ class Data():
         # close Html file
         output_file.close()
 
+    #This method will allow the csv file to be used by D3.js.
+    def convert_csv_for_d3(self):
+        self.__data = pd.read_csv('test.csv')
+        df = pd.DataFrame(self.__data)
+        return df
 
-data = Data()
+
+# data = Data()
 # data.convert_json_for_d3
-data.nvd3_chart()
+# data.nvd3_chart()
 
 #JSON
 #d = state_dict

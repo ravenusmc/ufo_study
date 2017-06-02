@@ -58,12 +58,6 @@ def home():
         return redirect(url_for('login'))
     return render_template('home.html', title='Home Page')
 
-#This function will bring the user to the data page
-@app.route('/data')
-def data():
-    if 'username' not in session:
-        return redirect(url_for('login'))
-    return render_template('data.html', title='Data Page')
 
 #This function will bring the user to the graph page
 @app.route('/graph')
@@ -71,6 +65,20 @@ def graph():
     if 'username' not in session:
         return redirect(url_for('login'))
     return render_template('graph.html', title='Graph Page')
+
+#This function will bring the user to the data page
+@app.route('/data')
+def data():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    return render_template('data.html', title='Data Page')
+
+#This function is what will convert a csv file to be used with d3.
+@app.route('/my/data/endpoint')
+def get_d3_data():
+    data = Data()
+    data_file = data.convert_csv_for_d3()
+    return data_file.to_csv()
 
 #This function is what will log out the user.
 @app.route('/sign_out')
