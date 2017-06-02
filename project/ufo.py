@@ -126,14 +126,14 @@ class Data():
             value = str(newValue)
             count += 1
         # Open File for test
-        output_file = open('test_lineChart.html', 'w')
+        output_file = open('ufo_chart.html', 'w')
         #The rest of these lines will use NVD3 to create the graph.
         type = 'lineChart'
-        chart = lineChart(name=type, height=600, width=600, x_is_date=True,)
+        chart = lineChart(name=type, height=600, width=600)
         #Creating the variables which will hold the data.
         xdata = date
         ydata = years
-        kwargs1 = {'color': 'black'}
+        kwargs1 = {'color': 'blue'}
         #This is what will actually plot the data
         chart.add_serie(y=ydata, name='UFO Count By Year', x=xdata, **kwargs1)
         #This builds the HTML file for my graph.
@@ -144,9 +144,9 @@ class Data():
         output_file.close()
 
 
-# data = Data()
+data = Data()
 # data.convert_json_for_d3
-# data.test()
+data.nvd3_chart()
 
 #JSON
 #d = state_dict
