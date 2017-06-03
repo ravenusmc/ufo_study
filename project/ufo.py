@@ -8,9 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-
 from nvd3 import lineChart
-
 
 #This class is what will handle all of the coding with the CSV file.
 class Data():
@@ -148,77 +146,3 @@ class Data():
         self.__data = pd.read_csv('test.csv')
         df = pd.DataFrame(self.__data)
         return df
-
-
-# data = Data()
-# data.convert_json_for_d3
-# data.nvd3_chart()
-
-#JSON
-#d = state_dict
-# jsonarray = json.dumps(d)
-# print(jsonarray)
-# {
-# "TX": 1027,
-# "NV": 284,
-# "AL": 193,
-# "TN": 286,
-# "AZ": 738,
-# "Ca": 1,
-# "GA": 325,
-# "NJ": 370,
-# "IL": 613,
-# "CO": 367,
-# "OK": 193,
-# "MS": 139,
-# "HI": 85,
-# "WA": 1322,
-# "WV": 132,
-# "NC": 356,
-# "MO": 448,
-# "OH": 667,
-# "NM": 241,
-# "DE": 43,
-# "FL": 837,
-# "OR": 534,
-# "IN": 326,
-# "PA": 598,
-# "MT": 144,
-# "ND": 51,
-# "ID": 130,
-# "UT": 193,
-# "NY": 914,
-# "RI": 67,
-# "MA": 322,
-# "WY": 69,
-# "MN": 254,
-# "IA": 162,
-# "SD": 57,
-# "MI": 591,
-# "LA": 174,
-# "AK": 116,
-# "SC": 166,
-# "Fl": 4,
-# "NE": 101,
-# "KS": 176,
-# "WI": 357,
-# "NH": 125,
-# "CT": 225,
-# "KY": 244,
-# "AR": 206,
-# "ME": 181,
-# "VA": 299,
-# "MD": 215,
-# "CA": 2529,
-# "VT": 44
-# }
-
-#Scrap code
-#print(self.__data.reset_index().values[0][0])
-# state_dict = {}
-# states = self.__data[[3]]
-# states = states.head()
-# count = 0
-# while count < len(states):
-#     print(states.iloc[count][0])
-#     count += 1

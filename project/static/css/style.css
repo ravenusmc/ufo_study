@@ -62,6 +62,12 @@ footer {
 }
 
 /* CSS for Home Page */
+.yellow_bar {
+    height: 100px;
+    background-color: rgba(200, 255, 0, 0.5);
+    margin-top: -100px;
+}
+
 .main_image {
     background-image: url(https://source.unsplash.com/UEgo43quyCw);
     height: 1500px;
@@ -106,6 +112,7 @@ footer {
 .footer_home {
     margin-top: 1000px;
     text-transform: uppercase;
+    z-index: 100;
 }
 
 /* CSS for data page */

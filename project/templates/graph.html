@@ -1,20 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<style type="text/css">
-    div.bar {
-        display: inline-block;
-        width: 200px;
-        height: 75px;
-        background-color: teal;
-    }
-</style>
-<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
 <script src="https://d3js.org/d3.v3.min.js"></script>
-
-<!-- <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.5/nv.d3.min.js"></script> -->
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.0/nv.d3.min.js"></script>
@@ -50,7 +37,7 @@
                 90's. Starting around 1985, the word UFO began to appear more and more
                 in books and other media that Google tracks. I believe this is because
                 culture itself started to become interested in UFO's. Thus, more
-                books and articles are written about them creating a cycle. 
+                books and articles are written about them creating a cycle.
             </p>
             <p>The second graph comes from the CSV file that this app
                 used to pull its data from. It will show the UFO sightings, by year,
@@ -86,9 +73,6 @@
         <h1>UFO Sightings Per Year</h1>
         <div id="linechart"><svg style="width:600px;height:600px;"></svg></div>
     </section>
-    <!-- <section class='year_graph_section'>
-        <img src='static/img/graph_year.png' alt='graph of UFOs by year 1930-2000'>
-    </section> -->
 
     <hr>
 
@@ -110,7 +94,8 @@
     </p>
 </footer>
 
-<!-- JS code for using D3.JS -->
+<!-- JS code for using D3.JS-Yeah I should have this in the JS file but I
+kept changing things so just kept it here for the time being! -->
 <script>
 
 //Code for line graphs showing UFO's by year

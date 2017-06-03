@@ -30,6 +30,7 @@ project.
 5. React-15.5.4 (Used on a very small level)
 6. MySQL-5.6.26
 7. D3.JS version 3
+8. Green Sock-1.19.1
 
 ### Operation
 
@@ -39,9 +40,11 @@ website.
 
 # Issues
 
+A simple minor issue, more out of laziness. I did not add validation for the
+states.
 
 # Preview
 
-To see a video that talks about this project please go here: Coming Soon
+To see a video that talks about this project please go here: https://www.youtube.com/watch?v=vzkZq-EPM10&feature=em-upload_owner
 
-Blog entry: Coming Soon
+Blog entry: https://codingsaga.wordpress.com/2017/06/03/ufo-study/

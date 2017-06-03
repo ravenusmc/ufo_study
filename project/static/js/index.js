@@ -89,7 +89,6 @@ $(function() {
 
 //Code to calculate UFO's by year
 $(function() {
-
     var submit_form = function(e) {
         //The /_by_state is the method that you will use.
       $.getJSON($SCRIPT_ROOT + '/_by_year', {
@@ -103,3 +102,20 @@ $(function() {
     //This is what will submit the form when the user clicks the link.
     $('a#year').bind('click', submit_form);
 });
+
+//This function validates the entry form to ensure that the user entered valid
+//information.
+function myFunction() {
+    var x, text;
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("year_form").value;
+
+    // If x is Not a Number or less than one or greater than 10
+    if (isNaN(x) || x < 1930 || x > 2000) {
+        text = "Input is not valid";
+        alert(text);
+    }
+}
+
+//Green Sock Animation Code 
+TweenMax.to(".yellow_bar", 15, { y: 1465 });
